@@ -1,7 +1,7 @@
 # russianPostBot
 
-#quick start
-    1)В классах Main и MessageAssistant заполнить Telegram Token
-    2)В классе RusPost заполнить заполнить Login и Password из https://tracking.pochta.ru/
-    3)Запуск
+quick start
+    1)В классе Settings заполнить поля TelegramToken(@BotFather), Login, Password (https://tracking.pochta.ru/)
+    2)Запустить через Main
+
     

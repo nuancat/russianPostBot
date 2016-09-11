@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="russianPost:jar">
+    <output-path>$USER_HOME$/</output-path>
+    <root id="archive" name="russianPost.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="russianPost" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/me/shib/java/lib/jtelebot/2.1.0/jtelebot-2.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/me/shib/java/lib/restiny/0.1.1/restiny-0.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.7/gson-2.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jdom/jdom/2.0.2/jdom-2.0.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

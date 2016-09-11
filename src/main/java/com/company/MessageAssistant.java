@@ -10,7 +10,7 @@ import java.io.IOException;
  * Created by sha on 04.09.2016.
  */
 public  class MessageAssistant {
-    static TelegramBot bot = TelegramBot.getInstance("Telegram token");
+    static TelegramBot bot = TelegramBot.getInstance(Settings.TelegramToken);
     //RU001251570HK
 
     static void doSmthng (Message message) throws IOException {

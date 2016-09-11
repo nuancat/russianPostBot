@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-       TelegramBot bot = TelegramBot.getInstance("Telegram Token");
+       TelegramBot bot = TelegramBot.getInstance(Settings.TelegramToken);
         Update[] updates;
         while((updates = bot.getUpdates()) != null) {
             for (Update update : updates) {

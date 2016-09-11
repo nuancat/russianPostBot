@@ -59,8 +59,8 @@ public class RusPost {
             barcode.addTextNode(code);
             messageType.addTextNode("0");
             language.addTextNode("RUS");
-            login.addTextNode("RussianPost Login");
-            password.addTextNode("RussianPost Password");
+            login.addTextNode(Settings.LoginPost);
+            password.addTextNode(Settings.PasswordPost);
 
             //Сохранение сообщения
             message.saveChanges();

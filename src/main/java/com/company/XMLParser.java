@@ -15,20 +15,29 @@ import java.io.InputStream;
  */
 public class XMLParser {
 
-    String parse(InputStream x) throws JDOMException, IOException {
+    String parse(InputStream x) throws  IOException {
 
         SAXBuilder parser = new SAXBuilder();
         Document xmlDoc;
-        xmlDoc = parser.build(x);
+        try {
+            xmlDoc = parser.build(x);
+        } catch (JDOMException e) {
+            System.out.println("Ошибка парсера");
+            return "Ошибка при разборе данных";
+        }
         IteratorIterable<Element> elements = xmlDoc.getDescendants(new ElementFilter("historyRecord"));
         StringBuilder sb = new StringBuilder("");
         int c = 1;
         while (elements.hasNext()) {
             Element history = (Element) elements.next();
+            String country;
             String datetime = history.getChild("OperationParameters",history.getNamespace()).getChildText("OperDate",history.getNamespace());
             String name = history.getChild("OperationParameters",history.getNamespace()).getChild("OperType",history.getNamespace()).getChildText("Name",history.getNamespace());
-            String country = history.getChild("AddressParameters",history.getNamespace()).getChild("OperationAddress",history.getNamespace()).getChildText("Description",history.getNamespace());
-            sb.append(c+". "+name + " "+ country+" "+datetime.substring(0,19).replaceAll("T"," ")+"\n\n");
+            String countryOperID = history.getChild("AddressParameters",history.getNamespace()).getChild("CountryOper",history.getNamespace()).getChildText("Id",history.getNamespace());
+            if (countryOperID.equals("643"))
+            country = history.getChild("AddressParameters",history.getNamespace()).getChild("OperationAddress",history.getNamespace()).getChildText("Description",history.getNamespace());
+            else country = history.getChild("AddressParameters",history.getNamespace()).getChild("CountryOper",history.getNamespace()).getChildText("NameRU",history.getNamespace());
+            sb.append(c+". "+name + " - "+ country+" - "+datetime.substring(0,19).replaceAll("T","-")+"\n\n");
             c++;
         }
         return sb.toString();
